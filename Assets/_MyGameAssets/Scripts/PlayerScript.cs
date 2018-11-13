@@ -7,14 +7,19 @@ public class PlayerScript : MonoBehaviour {
 
     NavMeshAgent agente;
     public Transform targetCircle;
+    Animator animador;
 
     void Start() {
         agente = GetComponent<NavMeshAgent>();
+        animador = GetComponent<Animator>();
     }
 
     void Update() {
         if (Input.GetButtonDown("Fire1")) {
             ManageMouseClick();
+        }
+        if(agente.remainingDistance <= agente.stoppingDistance) {
+            animador.SetBool("andando", false);
         }
     }
 
@@ -26,6 +31,7 @@ public class PlayerScript : MonoBehaviour {
             targetCircle.transform.position = rch.point;
             targetCircle.transform.rotation = Quaternion.LookRotation(rch.normal);
             agente.destination = targetCircle.transform.position;
+            animador.SetBool("andando", true);
         }
     }
 }

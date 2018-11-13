@@ -1194,7 +1194,7 @@ GameObject:
   - component: {fileID: 534669903}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1252,8 +1252,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0.04435663, y: 0.8954892, z: -0.09199494, w: -0.43320733}
-  m_LocalPosition: {x: 9.696542, y: 1.7374835, z: 6.0848694}
+  m_LocalRotation: {x: 0.1841711, y: -0.81582665, z: 0.38806954, w: 0.38718206}
+  m_LocalPosition: {x: 18.408203, y: 24.34528, z: 16.932058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11761,7 +11761,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -11780,7 +11780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837904a7e8f9dd144aa5fa76aae5de84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 409662853}
+  targetCircle: {fileID: 1949407267}
 --- !u!191 &1460090896
 OffMeshLink:
   m_ObjectHideFlags: 0
@@ -15155,6 +15155,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0c106e0186508214d961f8543e3f5d69, type: 2}
+    - target: {fileID: 100176, guid: 154f107777716e4488edd0de42414684, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 154f107777716e4488edd0de42414684, type: 3}
   m_IsPrefabAsset: 0
