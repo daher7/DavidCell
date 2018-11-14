@@ -5,9 +5,14 @@ using UnityEngine.AI;
 
 public class PlayerScript : MonoBehaviour {
 
+    // Declaracion de los estdos del player
+    enum Estado { Idle, Andando, Corriendo, Saltando, Disparando };
+    Estado estado = Estado.Idle;
+
     NavMeshAgent agente;
     public Transform targetCircle;
     Animator animador;
+    public LayerMask walkableLayer;
 
     void Start() {
         agente = GetComponent<NavMeshAgent>();
@@ -18,20 +23,70 @@ public class PlayerScript : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) {
             ManageMouseClick();
         }
-        if(agente.remainingDistance <= agente.stoppingDistance) {
-            animador.SetBool("andando", false);
+
+
+        // Evaluacion de los estados
+        switch (estado) {
+            case Estado.Idle:
+                // NO EVALUAMOS NADA
+                break;
+            case Estado.Andando:
+                ComprobarDestino();
+                break;
+            case Estado.Corriendo:
+
+                break;
+            case Estado.Saltando:
+
+                break;
+            case Estado.Disparando:
+
+                break;
+        }
+    }
+
+    private void ComprobarDestino() {
+        if (!agente.pathPending) {
+            if (agente.remainingDistance <= agente.stoppingDistance) {
+                animador.SetBool("andando", false);
+                estado = Estado.Idle;
+            }
         }
     }
 
     private void ManageMouseClick() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit rch;
-        bool hasTouch = Physics.Raycast(ray, out rch);
+        // Vamos a limitar que se muestre el CirculoHud solo en aquellos objetos que tengan
+        // la capa walkable
+        bool hasTouch = Physics.Raycast(ray, out rch, Mathf.Infinity, walkableLayer);
         if (hasTouch) {
-            targetCircle.transform.position = rch.point;
-            targetCircle.transform.rotation = Quaternion.LookRotation(rch.normal);
-            agente.destination = targetCircle.transform.position;
-            animador.SetBool("andando", true);
+            switch (estado) {
+                case Estado.Idle:
+                    Andar(rch);
+                    break;
+                case Estado.Andando:
+
+                    break;
+                case Estado.Corriendo:
+
+                    break;
+                case Estado.Saltando:
+
+                    break;
+                case Estado.Disparando:
+
+                    break;
+            }
+
         }
+    }
+
+    private void Andar(RaycastHit rch) {
+        targetCircle.transform.position = rch.point;
+        targetCircle.transform.rotation = Quaternion.LookRotation(rch.normal);
+        agente.destination = targetCircle.transform.position;
+        animador.SetBool("andando", true);
+        estado = Estado.Andando;
     }
 }
