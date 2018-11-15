@@ -13,7 +13,11 @@ public class PlayerScript : MonoBehaviour {
     public Transform targetCircle;
     Animator animador;
     public LayerMask walkableLayer;
-
+    // DISTRACCION AL ENEMIGO
+    [SerializeField] GameObject prefabPiedra;
+    [SerializeField] Transform ptoGeneracionPiedra;
+    [SerializeField] int fuerzaPiedra = 100;
+ 
     void Start() {
         agente = GetComponent<NavMeshAgent>();
         animador = GetComponent<Animator>();
@@ -22,6 +26,10 @@ public class PlayerScript : MonoBehaviour {
     void Update() {
         if (Input.GetButtonDown("Fire1")) {
             ManageMouseClick();
+        }
+        if (Input.GetKeyDown(KeyCode.V)) {
+            print("Has pulsado la v");
+            LanzarPiedra();
         }
 
 
@@ -43,6 +51,11 @@ public class PlayerScript : MonoBehaviour {
 
                 break;
         }
+    }
+
+    private void LanzarPiedra() {
+        GameObject piedra = Instantiate(prefabPiedra, ptoGeneracionPiedra.position, ptoGeneracionPiedra.rotation);
+        piedra.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * fuerzaPiedra);
     }
 
     private void ComprobarDestino() {

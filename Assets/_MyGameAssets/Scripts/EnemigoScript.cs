@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemigoScript : MonoBehaviour {
 
-    
     [SerializeField] Transform[] puntosPatrulla = new Transform[4];
     NavMeshAgent agente;
     // Tiempo de espera entre asignaciones de puntos de patrulla
