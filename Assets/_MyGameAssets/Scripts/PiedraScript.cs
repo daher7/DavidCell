@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PiedraScript : MonoBehaviour {
-   
-    public EnemigoScript enemigo;
-   
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Player")) {
-            LlamarEnemigo();
-            Destroy(this.gameObject);
-        }
+
+    private EnemigoScript enemigo;
+    private bool miPrimeraVez = true;
+    [SerializeField] float timeToDestroy = 3.5f;
+
+    private void Start() {
+        enemigo = GameObject.Find("Enemigo").GetComponent<EnemigoScript>();
     }
 
-    void LlamarEnemigo() {
-        enemigo.SetTarget(transform.position);
+    private void OnCollisionEnter(Collision collision) {
+        if (miPrimeraVez) {
+            enemigo.SetTarget(transform.position);
+            miPrimeraVez = false;
+            Destroy(gameObject, timeToDestroy);
+        }
     }
 }

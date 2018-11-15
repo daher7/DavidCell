@@ -28,11 +28,8 @@ public class PlayerScript : MonoBehaviour {
             ManageMouseClick();
         }
         if (Input.GetKeyDown(KeyCode.V)) {
-            print("Has pulsado la v");
             LanzarPiedra();
         }
-
-
         // Evaluacion de los estados
         switch (estado) {
             case Estado.Idle:
