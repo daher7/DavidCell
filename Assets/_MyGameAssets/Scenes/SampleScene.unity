@@ -212,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 115148094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.03, y: 0, z: -2.72}
+  m_LocalPosition: {x: 3.13, y: 0, z: 16.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 55683819}
@@ -1312,8 +1312,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0.19381213, y: 0.8059415, z: -0.38334498, w: -0.4073594}
-  m_LocalPosition: {x: 14.808944, y: 16.541986, z: 10.835181}
+  m_LocalRotation: {x: -0.22554408, y: 0.7568168, z: -0.51709765, w: -0.33010337}
+  m_LocalPosition: {x: 12.895769, y: 35.514866, z: 4.53865}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1324,7 +1324,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh13104
+  m_Name: pb_Mesh13678
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6376,7 +6376,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh13038
+  m_Name: pb_Mesh13602
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -14907,6 +14907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorPuerta: {fileID: 1336074542}
+  enemigo: {fileID: 1559943634}
   puerta: {fileID: 1336074535}
   particulas: {fileID: 198194127032045410, guid: 46876a2780737ec45a19d62f88e5ce56,
     type: 2}

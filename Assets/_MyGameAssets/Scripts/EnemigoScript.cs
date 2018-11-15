@@ -42,7 +42,7 @@ public class EnemigoScript : MonoBehaviour {
     
     private void ComprobarDestino() {
         if (!agente.pathPending) {
-            if (agente.remainingDistance <= agente.stoppingDistance) {
+            if (agente.remainingDistance <= agente.stoppingDistance + 0.1) {
                 // animador.SetBool("andando", false);
                 estado = Estado.Idle;
                 Invoke("AsignarPuntoPatrulla", TIEMPO_ESPERA);
@@ -53,6 +53,11 @@ public class EnemigoScript : MonoBehaviour {
     private void AsignarPuntoPatrulla() {
         int pp = Random.Range(0, puntosPatrulla.Length);
         agente.destination = puntosPatrulla[pp].position;
+        estado = Estado.Andando;
+    }
+
+    public void SetTarget(Vector3 position) {
+        agente.destination = position;
         estado = Estado.Andando;
     }
 
