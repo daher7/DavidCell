@@ -16790,6 +16790,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1460090891}
+    - target: {fileID: 114661246377279620, guid: b273552d691d92d4d895574fff8cd4f8,
+        type: 2}
+      propertyPath: textAtiro
+      value: 
+      objectReference: {fileID: 574609996}
+    - target: {fileID: 195089463490339342, guid: b273552d691d92d4d895574fff8cd4f8,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b273552d691d92d4d895574fff8cd4f8, type: 2}
   m_IsPrefabAsset: 0
