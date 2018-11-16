@@ -14,7 +14,7 @@ public class PiedraScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (miPrimeraVez) {
-            enemigo.SetTarget(transform.position);
+            enemigo.SetDistraccion(transform.position);
             miPrimeraVez = false;
             Destroy(gameObject, timeToDestroy);
         }

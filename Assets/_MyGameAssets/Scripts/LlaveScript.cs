@@ -18,7 +18,7 @@ public class LlaveScript : MonoBehaviour {
     }
 
     void AbrirPuerta() {
-        enemigo.SetTarget(transform.position);
+        enemigo.SetDistraccion(transform.position);
         animatorPuerta.SetBool("AbreteSesamo", true);
         ParticleSystem ps = Instantiate(particulas, transform.position, Quaternion.identity);
         ps.Play();
